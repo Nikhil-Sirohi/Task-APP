@@ -6,7 +6,7 @@ import {
 } from "../services/authService";
 import { User } from "../types/auth";
 
-interface AuthContextType {
+export interface AuthContextType {
   user: User | null;
   token: string | null;
   login: (email: string, password: string) => Promise<void>;

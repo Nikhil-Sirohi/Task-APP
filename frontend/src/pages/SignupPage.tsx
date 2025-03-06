@@ -14,7 +14,6 @@ const SignupPage: React.FC = () => {
   const { register, handleSubmit } = useForm<SignupForm>();
 
   const onSubmit: SubmitHandler<SignupForm> = async (data) => {
-    console.log("Form submitted:", data);
     try {
       await signup(data.email, data.password);
       navigate("/dashboard");
@@ -24,30 +23,32 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <Navbar />
-      <div className="container mx-auto p-4 max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="absolute top-20 w-full max-w-md p-8 bg-white rounded-lg shadow-xl">
+        <h1 className="text-3xl font-bold text-teal-600 mb-6 text-center">
+          Sign Up
+        </h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label className="block text-gray-700">Email</label>
+            <label className="block text-gray-700 font-medium">Email</label>
             <input
               {...register("email", { required: true })}
               type="email"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
             />
           </div>
           <div>
-            <label className="block text-gray-700">Password</label>
+            <label className="block text-gray-700 font-medium">Password</label>
             <input
               {...register("password", { required: true, minLength: 8 })}
               type="password"
-              className="w-full p-2 border rounded"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400"
             />
           </div>
           <button
             type="submit"
-            className="w-full p-2 bg-blue-500 text-white rounded"
+            className="w-full p-3 bg-teal-400 text-white rounded-lg hover:bg-teal-500 transition duration-300 shadow-md"
           >
             Sign Up
           </button>

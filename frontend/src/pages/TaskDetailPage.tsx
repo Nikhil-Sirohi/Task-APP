@@ -26,14 +26,16 @@ const TaskDetailPage: React.FC = () => {
     }
   };
 
-  if (!task) return <div>Loading...</div>;
+  if (!task) return <div className="text-gray-600 text-center">Loading...</div>;
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <div className="container mx-auto p-4 max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Edit Task</h1>
-        <TaskForm task={task} onSubmit={handleSubmit} />
+      <div className="container mx-auto p-6 max-w-md">
+        <h1 className="text-3xl font-bold text-teal-600 mb-6">Edit Task</h1>
+        <div className="p-6 bg-white rounded-lg shadow-xl">
+          <TaskForm task={task} onSubmit={handleSubmit} />
+        </div>
       </div>
     </div>
   );
